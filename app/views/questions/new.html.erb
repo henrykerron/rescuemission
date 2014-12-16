@@ -1,3 +1,9 @@
+<% if @question.errors.any? %>
+	<% @question.errors.messages.each do |q| %>
+		<%= q[1].join %>
+	<% end %>
+<% end %>
+
 <%= form_for @question, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
   <%= f.text_field :title %>
   <%= f.text_area :description, size: "60x12" %>
